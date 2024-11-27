@@ -9,3 +9,25 @@
 // also want to call this function again when the user saves their preferences to
 // immediately apply them. Make sure you also notify the user somehow that the preferences
 // were saved.
+
+// Add an event listener for form submission
+document.querySelector('form').addEventListener('submit', function (event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Capture the values from the form
+    const userName = document.querySelector('#name').value; // Retrieves the name entered by the user
+    const backgroundColor = document.querySelector('#background-color').value; // Retrieves the chosen background color
+    const foregroundColor = document.querySelector('#foreground-color').value; // Retrieves the chosen foreground color
+
+    // Save these values to localStorage
+    localStorage.setItem('userName', userName); // Stores the user's name in localStorage
+    localStorage.setItem('backgroundColor', backgroundColor); // Stores the selected background color in localStorage
+    localStorage.setItem('foregroundColor', foregroundColor); // Stores the selected foreground color in localStorage
+
+    // Notify the user that preferences have been saved
+    alert('Preferences saved successfully!'); // Alerts the user to confirm their preferences are saved
+
+    // Apply the preferences immediately
+    applyPreferences(); // Calls the function to apply preferences instantly
+});
