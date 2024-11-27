@@ -49,3 +49,5 @@ function applyPreferences() {
         document.body.style.color = foregroundColor; // Changes the text color of the page
     }
 }
+// Call the applyPreferences function when the page loads
+document.addEventListener('DOMContentLoaded', applyPreferences); // Ensures preferences are applied when the page loads
