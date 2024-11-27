@@ -31,3 +31,21 @@ document.querySelector('form').addEventListener('submit', function (event) {
     // Apply the preferences immediately
     applyPreferences(); // Calls the function to apply preferences instantly
 });
+// Function to apply saved preferences from localStorage
+function applyPreferences() {
+    // Retrieve preferences from localStorage
+    const userName = localStorage.getItem('userName'); // Gets the saved name from localStorage
+    const backgroundColor = localStorage.getItem('backgroundColor'); // Gets the saved background color
+    const foregroundColor = localStorage.getItem('foregroundColor'); // Gets the saved foreground color
+
+    // Apply the preferences if they exist
+    if (userName) {
+        document.querySelector('#greeting').textContent = `Welcome, ${userName}!`; // Updates the greeting with the user's name
+    }
+    if (backgroundColor) {
+        document.body.style.backgroundColor = backgroundColor; // Changes the background color of the page
+    }
+    if (foregroundColor) {
+        document.body.style.color = foregroundColor; // Changes the text color of the page
+    }
+}
